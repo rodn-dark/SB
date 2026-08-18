@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Pengalihan Resmi</title>
     <style>
-        /* Desain halaman tunggu sederhana & profesional */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
@@ -25,6 +24,15 @@
             background: white;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        /* Pengaturan ukuran logo pribadi */
+        .logo-pribadi {
+            max-width: 120px; /* Atur lebar maksimal logo di sini */
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         .spinner {
             border: 4px solid #f3f3f3;
@@ -55,18 +63,14 @@
 
     <script>
         // === 🔧 PENGATURAN URL UTAMA ===
-        // Ganti tanda pagar (#) dengan URL website utama jika nanti sudah jadi (contoh: "https://google.com")
         const WEBSITE_UTAMA = "#"; 
 
-        // Sistem Auto-Redirect Pintar
         window.onload = function() {
-            // Jika URL utama masih tanda pagar (#), sistem tidak akan mengalihkan (mencegah error)
             if (WEBSITE_UTAMA !== "#" && WEBSITE_UTAMA !== "") {
                 setTimeout(function() {
                     window.location.href = WEBSITE_UTAMA;
-                }, 1000); // Mengalihkan otomatis setelah 1 detik
+                }, 1000); 
             } else {
-                // Jika web utama belum siap, ubah teks tampilan halaman tunggu
                 document.getElementById("status-text").innerText = "Website utama kami sedang dipersiapkan. Silakan pindai kembali beberapa saat lagi.";
                 document.getElementById("loading-icon").style.display = "none";
                 document.getElementById("backup-link").style.display = "none";
@@ -77,6 +81,9 @@
 <body>
 
     <div class="container">
+        <!-- ⚠️ PENTING: Ganti "logo.png" di bawah ini sesuai nama dan format file gambar Anda -->
+        <img src="LogoTunggu.png" alt="Logo" class="logo-pribadi">
+        
         <div class="spinner" id="loading-icon"></div>
         <h1 id="title-text">Menuju Halaman Utama</h1>
         <p id="status-text">Mohon tunggu sebentar, Anda sedang dialihkan secara otomatis...</p>
@@ -84,7 +91,6 @@
     </div>
 
     <script>
-        // Memasang link cadangan pada tombol jika URL sudah diisi
         if (WEBSITE_UTAMA !== "#" && WEBSITE_UTAMA !== "") {
             document.getElementById("backup-link").href = WEBSITE_UTAMA;
         }
